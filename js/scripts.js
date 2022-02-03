@@ -823,12 +823,12 @@ $('.cars-slider').slick({
 	$(window).scroll(function(){
 		if ($(window).scrollTop() > 0) {
 			$('.new-header').addClass('sticky');
-			$('.new-header .on-sticky').stop().slideDown(300);
+			// $('.new-header .on-sticky').stop().slideDown(300);
 			// $('.page-content').addClass('martt');
 		}
 		else {
 			$('.new-header').removeClass('sticky');
-			$('.new-header .on-sticky').stop().slideUp(300);
+			// $('.new-header .on-sticky').stop().slideUp(300);
 			// $('.page-content').removeClass('martt');
 		}
 	});

@@ -96,7 +96,11 @@
 	background: #fff;
 	width: 100%;
 	box-shadow: 0px 3px 20px rgba(34, 87, 142, 0.1);
-	transition: all .6s;
+	transition: all var(--t);
+
+	.header-rows-group{
+		position: relative;
+	}
 
 	.header-row{
 		&.first{
@@ -113,9 +117,14 @@
 
 		&.second{
 			padding: 15px 0 21px;
+			background: #fff;
 
 			&.small{
 				padding: 15px 0;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
 
 				@media screen and (max-width: 1199px){
 					padding: 10px 0;
@@ -142,8 +151,31 @@
 			}
 		}
 
+		&.hide-on-sticky{
+			transition: all var(--t);
+		}
+
 		&.on-sticky{
-			display: none;
+			transition: all var(--t);
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
+	}
+
+	&.sticky{
+		.header-row{
+			&.on-sticky{
+				opacity: 1;
+				visibility: visible;
+				pointer-events: auto;
+			}
+
+			&.hide-on-sticky{
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+			}
 		}
 	}
 
@@ -172,8 +204,13 @@
 
 	@media screen and (min-width: 576px){
 		&.sticky{
-			transform: translateY(-145px);
+			transform: translateY(-75px);
 			--header-height: 110px;
+
+			@media screen and (max-width: 1199px){
+				transform: translateY(-85px);
+				--header-height: 100px;
+			}
 		}
 	}
 
@@ -352,6 +389,8 @@
 		padding: 0;
 		grid-template-columns: 28px 1fr;
 		grid-gap: 13px;
+		box-shadow: none;
+		border-radius: 0;
 
 		.card-caption{
 			br{
